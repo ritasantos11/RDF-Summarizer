@@ -2,7 +2,7 @@ import json
 
 # funcoes auxiliares
 
-from trie import Trie
+from .trie import Trie
 
 
 def create_trie(json_file):

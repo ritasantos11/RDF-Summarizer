@@ -1,4 +1,4 @@
-from summarization import summarize
+from .summarization import summarize
 
 def main():
     file_name = re.split("^(.*)\.(\w+)$", sys.argv[1])[1]

@@ -1,9 +1,11 @@
-import json, time, sys, re
+import json
+import time
+import sys
+import re
 import rdflib as rdf
-from get_prefix import search_prefix, create_trie
-from prefixes import infer_common_namespaces, extract_namespace_declarations
-from write_file import write_graph, write_statements
 from os import path
+from .prefixes import search_prefix, create_trie, infer_common_namespaces, extract_namespace_declarations
+from .write_file import write_graph, write_statements
 
 
 start_time = time.time()
