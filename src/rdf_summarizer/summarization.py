@@ -184,6 +184,3 @@ def summarize(graph, string):
     print("%s" % local_time)
 
 
-file_name = re.split("^(.*)\.(\w+)$", sys.argv[1])[1]
-file_ext = re.split("^(.*)\.(\w+)$", sys.argv[1])[2]
-summarize(sys.argv[1], "")
