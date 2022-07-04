@@ -5,7 +5,7 @@ import json
 from .trie import Trie
 
 
-def create_trie(json_file):
+def create_trie(prefixes):
     """
     Creates a trie
 
@@ -14,8 +14,8 @@ def create_trie(json_file):
         json_file (dict): prefixes to insert in trie
     """
     t = Trie()
-    for key in json_file:
-        t.insert(json_file[key])
+    for key in prefixes:
+        t.insert(prefixes[key])
     return t  
 
 
