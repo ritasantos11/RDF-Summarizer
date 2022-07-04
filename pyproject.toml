@@ -26,4 +26,4 @@ dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
 Homepage = "https://github.com/ritasantos11/RDF-Summarizer"
 
 [project.scripts]
-summarization = "rdf-summarizer.__main__:main"
+summarize = "rdf_summarizer.__main__:main"
