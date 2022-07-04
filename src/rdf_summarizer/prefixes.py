@@ -19,7 +19,7 @@ def create_trie(prefixes):
     return t  
 
 
-def search_prefix(url, inv_json, t):
+def search_prefix(url, dictionary, trie):
     """
     Searches url in json file
 
@@ -30,9 +30,9 @@ def search_prefix(url, inv_json, t):
     Returns:
         alias associated with the url or null if not found
     """
-    prefix = t.search(url)
+    prefix = trie.search(url)
     if prefix != "":
-        return inv_json.get(prefix)
+        return dictionary.get(prefix)
     return "null"
 
 def dictionary_to_json(obj, filename):
