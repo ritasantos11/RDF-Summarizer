@@ -1,9 +1,47 @@
-
 import json
-from get_prefix import search_prefix
+
+# funcoes auxiliares
+
+from trie import Trie
 
 
-def create_first_json(g):
+def create_trie(json_file):
+    """
+    Creates a trie
+
+    Parameters:
+    -----------
+        json_file (dict): prefixes to insert in trie
+    """
+    t = Trie()
+    for key in json_file:
+        t.insert(json_file[key])
+    return t  
+
+
+def search_prefix(url, inv_json, t):
+    """
+    Searches url in json file
+
+    Parameters:
+    -----------
+        url (str): url to be found
+
+    Returns:
+        alias associated with the url or null if not found
+    """
+    prefix = t.search(url)
+    if prefix != "":
+        return inv_json.get(prefix)
+    return "null"
+
+def dictionary_to_json(obj, filename):
+    out_json = json.dumps(obj, indent = 4)
+    with open(filename, "w") as f:
+        f.write(out_json)
+
+
+def extract_namespace_declarations(g):
     """
     Create json file with prefixes of the graph file
 
@@ -19,12 +57,10 @@ def create_first_json(g):
             key = namespace[i+1:len(namespace)-1]
         new_prefixes.update({key: namespace})
 
-    out_json = json.dumps(new_prefixes, indent = 4)
-    with open("graph_prefixes.json", "w") as f:
-        f.write(out_json)
+    dictionary_to_json(new_prefixes, "graph_prefixes.json")
 
 
-def create_new_json(inv_graph_prefix, results, t):
+def infer_common_namespaces(inv_graph_prefix, results, t):
     """
     Create json file with new prefixes
 
@@ -112,6 +148,4 @@ def create_new_json(inv_graph_prefix, results, t):
 
             new_prefixes.update({prefix: key})
 
-    out_json = json.dumps(new_prefixes, indent = 4)
-    with open("inferred_prefixes.json", "w") as f:
-        f.write(out_json)
+    dictionary_to_json(new_prefixes, "inferred_prefixes.json")

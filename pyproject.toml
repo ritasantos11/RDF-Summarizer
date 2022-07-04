@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rdf-summarizer"
-version = "1.0.0"
+version = "0.0.1"
 description = "Summarization of a RDF graph"
 readme = "README.md"
 authors = [{ name = "Rita Costa", email = "ritasantoscosta9@gmail.com" }]

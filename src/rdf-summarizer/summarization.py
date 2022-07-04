@@ -1,8 +1,7 @@
-
 import json, time, sys, re
 import rdflib as rdf
 from get_prefix import search_prefix, create_trie
-from create_jsons import create_new_json, create_first_json
+from prefixes import infer_common_namespaces, extract_namespace_declarations
 from write_file import write_graph, write_statements
 from os import path
 
@@ -47,7 +46,7 @@ def update_dict(results_triples, s, p, o):
         results_triples[s] = new_results
 
 
-def summarization(graph, string):
+def summarize(graph, string):
     """
     Summarize graph
 
@@ -81,7 +80,7 @@ def summarization(graph, string):
     print("--- %s seconds after query---" % (time.time() - start_time))
 
     # prefixes of graph file
-    create_first_json(g)
+    extract_namespace_declarations(g)
     print("--- %s seconds after creation of first json---" % (time.time() - start_time))
 
     f = open("graph_prefixes.json")
@@ -97,7 +96,7 @@ def summarization(graph, string):
 
     t1 = create_trie(graph_prefix)
 
-    create_new_json(inv_graph_prefix, results, t1)
+    infer_common_namespaces(inv_graph_prefix, results, t1)
     print(
         "--- %s seconds after creation of second json---" % (time.time() - start_time)
     )
@@ -185,4 +184,4 @@ def summarization(graph, string):
 
 file_name = re.split("^(.*)\.(\w+)$", sys.argv[1])[1]
 file_ext = re.split("^(.*)\.(\w+)$", sys.argv[1])[2]
-summarization(sys.argv[1], "")
+summarize(sys.argv[1], "")
