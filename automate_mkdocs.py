@@ -76,9 +76,9 @@ def automate_mkdocs_from_docstring(
     with open(f'{repo_dir}/{mkgendocs_f}', 'r+') as mkgen_config:
         insert_string = ''
         for path, function_names in functions.items():
-            relative_path = str(path).replace(full_repo_dir+'src/', "").replace(".py", "")
+            relative_path = str(path).replace(full_repo_dir, "").replace(".py", "")
             insert_string += (
-                f'  - page: "{mkdocs_dir}/{relative_path}.md"\n    '
+                f'  - page: "' + mkdocs_dir + '/' + re.sub('^src\/', '', relative_path) + '.md"\n    '
                 f'source: "{relative_path}.py"\n'    #functions:\n'
             )
             page = f"{mkdocs_dir}/{relative_path}"
