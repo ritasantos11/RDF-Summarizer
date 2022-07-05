@@ -1,0 +1,35 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Large Semantic Graph Summarization using Namespaces
+  (accepted for publication), In 11th Symposium on
+  Languages, Applications and Technologies (SLATE
+  2022). Schloss Dagstuhl-Leibniz-Zentrum für
+  Informatik.
+message: >-
+  When refering to this work please cite this
+  scientific paper.
+type: software
+authors:
+  - given-names: 'Ana Rita '
+    family-names: Santos Lopes da Costa
+    affiliation: >-
+      Department of Computer Science of the Faculty
+      of Science at University of Porto, Portugal
+    orcid: 'https://orcid.org/0000-0002-5315-106X'
+  - given-names: André
+    family-names: Fernandes dos Santos
+    email: afs@inesctec.pt
+    affiliation: >-
+      CRACS & INESC Tec LA / Faculty of Sciences,
+      University of Porto, Portugal
+    orcid: 'https://orcid.org/0000-0001-6410-9740'
+  - family-names: Paulo Leal
+    given-names: José
+    email: zp@dcc.fc.up.pt
+    orcid: 'https://orcid.org/0000-0002-8409-0300'
+    affiliation: >-
+      CRACS & INESC Tec LA / Faculty of Sciences,
+      University of Porto, Portugal
