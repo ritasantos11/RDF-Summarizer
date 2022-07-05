@@ -77,9 +77,10 @@ def automate_mkdocs_from_docstring(
         insert_string = ''
         for path, function_names in functions.items():
             relative_path = str(path).replace(full_repo_dir, "").replace(".py", "")
+            reduced_path = re.sub('^src\/', '', relative_path)
             insert_string += (
-                f'  - page: "' + mkdocs_dir + '/' + re.sub('^src\/', '', relative_path) + '.md"\n    '
-                f'source: "{relative_path}.py"\n'    #functions:\n'
+                f'  - page: "{mkdocs_dir}/{reduced_path}.md"\n    '
+                f'source: "{reduced_path}.py"\n'    #functions:\n'
             )
             page = f"{mkdocs_dir}/{relative_path}"
             split_page = page.split("/")
