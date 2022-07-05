@@ -1,0 +1,36 @@
+site_name: RDF-Summarizer
+
+
+# Repository
+repo_name: RDF-Summarizer
+repo_url: https://github.com/ritasantos11/RDF-Summarizer
+edit_uri: ""
+# Copyright
+copyright: Rita Costa
+
+docs_dir: "docs/sources"
+
+plugins:
+  - search
+
+theme:
+  name: 'readthedocs'
+  custom_dir: 'docs'
+  palette:
+    primary: 'white'
+  #logo: 'assets/images/logo_full.svg'
+  #favicon: 'assets/images/favicon.svg'
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - instant
+nav:
+  - Home: index.md
+  - modules:
+    - automate_mkdocs: modules/automate_mkdocs.md
+    - src:
+      - rdf_summarizer:
+        - prefixes: modules/src/rdf_summarizer/prefixes.md
+        - summarization: modules/src/rdf_summarizer/summarization.md
+        - trie: modules/src/rdf_summarizer/trie.md
+        - write_file: modules/src/rdf_summarizer/write_file.md
