@@ -1,7 +1,7 @@
+import re
 import json
 import time
 import sys
-import re
 import rdflib as rdf
 from os import path
 from .prefixes import search_prefix, create_trie, infer_common_namespaces, extract_namespace_declarations
@@ -57,6 +57,10 @@ def summarize(graph, string):
         graph (Graph): graph to be summarized
         string (str): if normalize literals, the literals are converted
     """
+
+    file_name = re.split("^(.*)\.(\w+)$", graph)[1]
+    file_ext = re.split("^(.*)\.(\w+)$", graph)[2]
+
     if not path.exists(graph):
         print(f'Cannot find file {graph}', file=sys.stderr)
         sys.exit(1)
@@ -116,10 +120,10 @@ def summarize(graph, string):
     total = len(results)
     print(f"--- will process {total} triples")
     for count, row in enumerate(results):
-        #if count % 10000 == 0:
-        #    print(
-        #        f"Processed {str(count)} triples ({round((count*100)/total, 2)}%) in {str(time.time() - start_time)}"
-        #    )
+        if count % 10000 == 0:
+            print(
+                f"Processed {str(count)} triples ({round((count*100)/total, 2)}%) in {str(time.time() - start_time)}"
+            )
 
         literal = False
         suj_blank = False

@@ -13,7 +13,7 @@ class Trie:
         self.root = self.getNode()
 
     # returns new trie node
-    def getNode(sel):
+    def getNode(self):
         return TrieNode()
 
     # insert key in trie if not present
