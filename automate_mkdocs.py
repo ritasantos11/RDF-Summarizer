@@ -32,7 +32,7 @@ def automate_mkdocs_from_docstring(
         list: list of created markdown files and their relative paths
 
     """
-    p = repo_dir.glob('**/*.py')
+    p = repo_dir.glob('src/**/*.py')
     scripts = [x for x in p if x.is_file()]
 
     if Path.cwd() != repo_dir:  # look for mkgendocs.yml in the parent file if a subdirectory is used
