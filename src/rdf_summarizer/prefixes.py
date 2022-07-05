@@ -21,17 +21,15 @@ def create_trie(prefixes):
 
 
 def search_prefix(url, dictionary, trie):
-    """
-    Searches url in json file
+    """Searches url in prefixes nested dictionary
 
-    Parameters:
-    -----------
+    Args:
         url (str): url to be found
         dictionary (dict): mapping of prefixes and alias
         trie (Trie): tree of prefixes
 
     Returns:
-        alias associated with the url or null if not found
+        The alias associated with the url, or null if not found
     """
     prefix = trie.search(url)
     if prefix != "":
@@ -40,11 +38,9 @@ def search_prefix(url, dictionary, trie):
 
 
 def dictionary_to_json(obj, filename):
-    """
-    Create json file
+    """Dumps the prefixes dictionary to a JSON file
 
-    Parameters:
-    -----------
+    Args:
         obj (dict): mapping of prefixes and alias
         filename (str): name of the file to be created
     """
@@ -54,11 +50,9 @@ def dictionary_to_json(obj, filename):
 
 
 def extract_namespace_declarations(g):
-    """
-    Create json file with prefixes of the graph file
+    """Create a JSON file with prefixes from the graph
 
-    Parameters:
-    -----------
+    Args:
         g (Graph): graph
     """
     new_prefixes = {}
@@ -73,11 +67,9 @@ def extract_namespace_declarations(g):
 
 
 def infer_common_namespaces(inv_graph_prefix, results, t):
-    """
-    Create json file with new prefixes
+    """Create json file with new prefixes
 
-    Parameters:
-    -----------
+    Args:
         inv_graph_prefix (dict): mapping of prefixes and alias
         results: graph triples
         t (Trie): tree of prefixes
