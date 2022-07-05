@@ -9,39 +9,3 @@ copyright: Rita Costa
 
 #This specifies the autogeneration portion
 pages:
-  - page: "modules/automate_mkdocs.md"
-    source: "automate_mkdocs.py"
-    functions:
-      - add_val
-      - automate_mkdocs_from_docstring
-      - automate_nav_structure
-      - fix
-      - indent
-
-  - page: "modules/src/rdf_summarizer/trie.md"
-    source: "src/rdf_summarizer/trie.py"
-    classes:
-      - TrieNode
-      - Trie
-
-  - page: "modules/src/rdf_summarizer/summarization.md"
-    source: "src/rdf_summarizer/summarization.py"
-    functions:
-      - update_dict
-      - summarize
-
-  - page: "modules/src/rdf_summarizer/prefixes.md"
-    source: "src/rdf_summarizer/prefixes.py"
-    functions:
-      - create_trie
-      - search_prefix
-      - dictionary_to_json
-      - extract_namespace_declarations
-      - infer_common_namespaces
-
-  - page: "modules/src/rdf_summarizer/write_file.md"
-    source: "src/rdf_summarizer/write_file.py"
-    functions:
-      - write_graph
-      - write_statements
-

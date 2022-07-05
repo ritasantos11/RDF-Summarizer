@@ -32,7 +32,7 @@ def automate_mkdocs_from_docstring(
         list: list of created markdown files and their relative paths
 
     """
-    p = repo_dir.glob('**/*.py')
+    p = repo_dir.joinpath('src').glob('**/*.py')
     scripts = [x for x in p if x.is_file()]
 
     if Path.cwd() != repo_dir:  # look for mkgendocs.yml in the parent file if a subdirectory is used
@@ -176,7 +176,7 @@ def indent(string: str) -> int:
 
 def main():
     """Execute when running this script."""
-    repo_dir = Path.cwd().joinpath('src')
+    repo_dir = Path.cwd().joinpath('')
     #python_tips_dir = Path.cwd().joinpath('')
     # python_tips_dir = Path.cwd().joinpath("Python tips")
 
@@ -193,7 +193,7 @@ def main():
         mkdocs_dir='modules',
         mkdocs_f='mkdocs.yml',
         repo_dir=repo_dir,
-        match_string='- Home: index.md\n',
+        match_string='- Home: README.md\n',
         structure=structure
     )
 
