@@ -6,12 +6,13 @@ from .trie import Trie
 
 
 def create_trie(prefixes):
-    """
-    Creates a trie
+    """Creates a trie
 
-    Parameters:
-    -----------
+    Args:
         prefixes (dict): prefixes to insert in trie
+
+    Returns:
+        The created trie
     """
     t = Trie()
     for key in prefixes:
