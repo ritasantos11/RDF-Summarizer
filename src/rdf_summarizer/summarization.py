@@ -134,10 +134,11 @@ def summarize(graph, string):
         objeto = row["o"]
         obj_datatype = row["dt"]
 
-        if type(sujeito) == 'rdf.term.BNode':
+        if str(type(sujeito)) == "<class 'rdflib.term.BNode'>":
             suj_blank = True
-        if type(objeto) == 'rdf.term.BNode':
+        if str(type(objeto)) == "<class 'rdflib.term.BNode'>":
             obj_blank = True
+
 
         if obj_blank:
             prefix_o = "bnode"
